@@ -6,8 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>한국 표준시</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="script.js">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            color: inherit;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        .parent {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text-light {
+            font-size: 100px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 
 <body>
@@ -25,6 +47,33 @@
         })
 </script>
 
+<script>
+    const dpTime = function () {
+        const now = new Date()
+        let hours = now.getHours()
+        let minutes = now.getMinutes()
+        let seconds = now.getSeconds()
+        let ampm = ''
+        if (hours > 12) {
+            hours -= 12
+            ampm = '오후'
+        } else {
+            ampm = '오전'
+        }
+        if (hours < 10) {
+            hours = '0' + hours
+        }
+        if (minutes < 10) {
+            minutes = '0' + minutes
+        }
+        if (seconds < 10) {
+            seconds = '0' + seconds
+        }
+        document.querySelector('#time').innerHTML = ampm + hours + ":" + minutes + ":" + seconds
+    }
+    setInterval(dpTime, 1000)
+
+</script>
 </body>
 
 </html>
