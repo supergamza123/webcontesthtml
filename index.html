@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국 표준시</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="script.js">
+</head>
+
+<body>
+    <div class="parent d-flex justify-content-center align-items-center text-center">
+        <div id="time" class="text-light"></div>
+    </div>
+</body>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    axios.get(`https://source.unsplash.com/1920x1080/`)
+        .then((response) => {
+            const imageURL = response.request.responseURL
+            document.body.style.backgroundImage = `url('${imageURL}')`
+        })
+</script>
+
+</body>
+
+</html>
